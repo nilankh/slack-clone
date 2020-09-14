@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Sidebar extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Sidebar</h1>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div id="sidebar">
+        <div className="user-profile">
+          <div>
+            <img />
+          </div>
+          <div>Nilank Nikhil</div>
+        </div>
+        <div className="user-channels"></div>
+      </div>
+    );
+  }
 }
 
-export default Sidebar
+export default Sidebar;
