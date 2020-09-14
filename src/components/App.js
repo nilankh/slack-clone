@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import Signin from './Signin';
 
 function App() {
   return (
     <div className="App">
-      <h1>Slack</h1>
+      <Signin />
     </div>
   );
 }
