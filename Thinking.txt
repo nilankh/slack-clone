@@ -1,1 +1,22 @@
-WireFraming -Draw rough sketch of what you are actually going to build(rough sketch)
+1. WireFraming -Draw rough sketch of what you are actually going to build(rough sketch)
+2. Functionality
+ * Sign in
+ * Sign up
+ * Create a channel
+ * Send message in a channel
+ * Join a channel
+ * Search a channel
+3. Data
+  * users
+  * channels
+  * messages
+4. UI
+  * Sidebar
+    * ListOfChannel
+    * ListOfDirectMessages
+  * MainContainer
+    * Header
+    * Message
+    * CreateMessage
+  * SignIn
+  * SignUp
