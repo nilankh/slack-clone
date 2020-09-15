@@ -17,6 +17,9 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 
 export const signInWithGoogle = () => {
+  // Initialize google Provider
   const googleProvider = new firebase.auth.GoogleAuthProvider();
+  // Ask user to select gmail account in a new popup window
+  
   auth.signInWithPopup(googleProvider);
 };
