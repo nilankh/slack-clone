@@ -1,27 +1,52 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { SignIn, Slack } from './';
+import { UserContext } from '../providers/UserProvider';
 
-function Home() {
-  return <div>Home</div>;
-}
+const PrivateRoute = ({ component: Component, isLoggedIn, ...others }) => {
+  return (
+    <Route
+      {...others}
+      render={(props) => {
+        return isLoggedIn ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: {
+                from: props.location,
+              },
+            }}
+          />
+        );
+      }}
+    />
+  );
+};
 
-function Some() {
-  return <div>Some</div>;
-}
+function App() {
+  const auth = useContext(UserContext);
+  console.log('App -> auth', auth);
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={SignIn} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/slack" component={Slack} />
-        </Switch>
-      </div>
-    );
+  if (auth.loading) {
+    return <h1>Loading</h1>;
   }
+
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/login" component={SignIn} />
+        <Route exact path="/signup" component={SignIn} />
+        <PrivateRoute
+          exact
+          path="/"
+          component={Slack}
+          isLoggedIn={auth.user ? true : false}
+        />
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
