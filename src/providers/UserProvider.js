@@ -14,12 +14,12 @@ class UserProvider extends Component {
       console.log('UserProvider -> componentDidMount -> userAuth', userAuth);
       if (userAuth) {
         const userRef = await createOrGetUserProfileDocument(userAuth);
+
         console.log('userRef', userRef);
         userRef.onSnapshot((snapshot) => {
-          console.log('snapshot', snapshot);
-          console.log('snapshot data', snapshot.data);
           this.setState({
             user: { uid: snapshot.id, ...snapshot.data() },
+            loading: false,
           });
         });
       }

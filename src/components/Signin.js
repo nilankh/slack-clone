@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { signInWithGoogle } from '../firebase';
+import { signInWithGoogle, signOut } from '../firebase';
 
 class SignIn extends Component {
   render() {
@@ -20,6 +20,10 @@ class SignIn extends Component {
             alt="pic"
           />
           Sign up with Google
+        </button>
+      <br></br>
+        <button onClick={signOut}>
+Logout
         </button>
       </div>
     );

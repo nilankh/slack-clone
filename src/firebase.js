@@ -24,6 +24,9 @@ export const signInWithGoogle = () => {
 
   auth.signInWithPopup(googleProvider);
 };
+export const signOut = () => {
+  auth.signOut();
+}
 
 export const createOrGetUserProfileDocument = async (user) => {
   if (!user) return;
