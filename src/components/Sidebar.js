@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { signOut } from '../firebase';
+import { Link } from 'react-router-dom';
 
 class Sidebar extends Component {
   render() {
+    const { channels } = this.props;
     return (
       <div id="sidebar">
         <div className="user-profile">
           <div className="avatar">
-            <img
-              src="https://www.flaticon.com/svg/static/icons/svg/2919/2919600.svg"
-              alt="pic"
-            />
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2919/2919600.svg" />
           </div>
           <div>Ronald</div>
           <div
@@ -19,7 +18,6 @@ class Sidebar extends Component {
           >
             <img
               src="https://www.flaticon.com/svg/static/icons/svg/2150/2150480.svg"
-              alt="pic"
               height="25"
             />
           </div>
@@ -30,8 +28,11 @@ class Sidebar extends Component {
           <div className="header">Channels</div>
 
           <ul className="channels-list">
-            <li># assignment</li>
-            <li># test</li>
+            {channels.map((channel) => (
+              <li key={channel.id}>
+                <Link to={`/?id=${channel.id}`}># {channel.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
