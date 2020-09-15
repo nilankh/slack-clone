@@ -11,6 +11,8 @@ const PrivateRoute = ({ component: Component, isLoggedIn, ...others }) => {
         return isLoggedIn ? (
           <Component {...props} />
         ) : (
+          // we will pass the path the user is trying to access to our login component
+          // instead of passing string we pass object
           <Redirect
             to={{
               pathname: '/login',
@@ -30,7 +32,7 @@ function App() {
   console.log('App -> auth', auth);
 
   if (auth.loading) {
-    return <h1>Loading</h1>;
+    return <h1>Loading!</h1>;
   }
 
   return (
@@ -44,6 +46,7 @@ function App() {
           component={Slack}
           isLoggedIn={auth.user ? true : false}
         />
+        {/* <Route exact path="/slack" component={Slack} /> */}
       </Switch>
     </div>
   );

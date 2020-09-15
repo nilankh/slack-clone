@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { signOut } from '../firebase';
 
 class Sidebar extends Component {
   render() {
@@ -6,9 +7,22 @@ class Sidebar extends Component {
       <div id="sidebar">
         <div className="user-profile">
           <div className="avatar">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/2919/2919600.svg" />
+            <img
+              src="https://www.flaticon.com/svg/static/icons/svg/2919/2919600.svg"
+              alt="pic"
+            />
           </div>
           <div>Ronald</div>
+          <div
+            style={{ marginLeft: 10, marginTop: 2, cursor: 'pointer' }}
+            onClick={signOut}
+          >
+            <img
+              src="https://www.flaticon.com/svg/static/icons/svg/2150/2150480.svg"
+              alt="pic"
+              height="25"
+            />
+          </div>
         </div>
         <hr className="sidebar-spacer" />
 

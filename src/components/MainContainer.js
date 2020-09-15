@@ -12,7 +12,10 @@ class MainContainer extends Component {
         <div className="messages-list">
           <div className="message">
             <div className="left-block">
-              <img src="https://ca.slack-edge.com/T0188513NTW-U01867WD8GK-ga631e27835b-72" />
+              <img
+                src="https://ca.slack-edge.com/T0188513NTW-U01867WD8GK-ga631e27835b-72"
+                alt="img"
+              />
             </div>
             <div className="right-block">
               <div className="user">
@@ -25,7 +28,10 @@ class MainContainer extends Component {
 
           <div className="message">
             <div className="left-block">
-              <img src="https://ca.slack-edge.com/T0188513NTW-U01867WD8GK-ga631e27835b-72" />
+              <img
+                src="https://ca.slack-edge.com/T0188513NTW-U01867WD8GK-ga631e27835b-72"
+                alt="img"
+              />
             </div>
             <div className="right-block">
               <div className="user">
